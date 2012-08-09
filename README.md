@@ -127,7 +127,7 @@ Read:
   int ret = bundle::Reader::Read("p/20120512/4,2048,15.jpg", &buf, "/mnt/mfs");
 ```
 
-Build:
+Build(Linux):
 ```
 sudo apt-get install gyp
 git clone git://github.com/xiaonei/bundle.git bundle.git
@@ -135,6 +135,18 @@ cd bundle.git
 gyp --depth=. --toplevel-dir=. -Dlibrary=static_library gyp/bundle.gyp
 make
 ls out/Default
+```
+
+Build(Windows):
+```
+1 install gyp first
+  easy_install gyp
+
+2 generate .vcproj file
+  cd bundle.git/gyp
+  gyp --depth . -Dlibrary=static_library mooseclient.gyp -fmsvs -G msvs_version=2010
+
+3 code with mooseclient.lib
 ```
 
 Deploy web access
